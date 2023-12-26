@@ -46,28 +46,28 @@ jobs:
         # if: steps.list-changed.outputs.changed == 'true'
         uses: helm/kind-action@v1.8.0
 
-      - name: Install Helm Chart in namespace doku-${{ secrets.GITHUB_RUN_ID }}
+      - name: Install Helm Chart in namespace doku-${{ github.run_id }}
         # if: steps.list-changed.outputs.changed == 'true'
-        run: helm install ${{ secrets.GITHUB_REF_NAME }} ./charts/doku --namespace doku-${{ secrets.GITHUB_RUN_ID }} --create-namespace
+        run: helm install ${{ github.ref_name }} ./charts/doku --namespace doku-${{ github.run_id }} --create-namespace
 
-      - name: Wait for Pods to be ready in namespace doku-${{ secrets.GITHUB_RUN_ID }}
+      - name: Wait for Pods to be ready in namespace doku-${{ github.run_id }}
         # if: steps.list-changed.outputs.changed == 'true'
         run: sleep 120
       
-      - name: Check Pod status in namespace doku-${{ secrets.GITHUB_RUN_ID }}
+      - name: Check Pod status in namespace doku-${{ github.run_id }}
         # if: steps.list-changed.outputs.changed == 'true'
         run: |
-          kubectl get pods -n doku-${{ secrets.GITHUB_RUN_ID }}
+          kubectl get pods -n doku-${{ github.run_id }}
 
-      - name: Print logs for a pod with label `app=${{ secrets.GITHUB_REF_NAME }}`
+      - name: Print logs for a pod with label `app=${{ github.ref_name }}`
         # if: steps.list-changed.outputs.changed == 'true'
         run: |
-          kubectl logs -n doku-${{ secrets.GITHUB_RUN_ID }} -l app=${{ secrets.GITHUB_REF_NAME }}
+          kubectl logs -n doku-${{ github.run_id }} -l app=${{ github.ref_name }}
       
-      - name: Check if Doku pods are running in namespace "doku-${{ secrets.GITHUB_RUN_ID }}"
+      - name: Check if Doku pods are running in namespace "doku-${{ github.run_id }}"
         # if: steps.list-changed.outputs.changed == 'true'
         run: |
-          STATUS=$(kubectl get pods -l app=${{ secrets.GITHUB_REF_NAME }} -n doku-${{ secrets.GITHUB_RUN_ID }} -o jsonpath="{.items[*].status.phase}")
+          STATUS=$(kubectl get pods -l app=${{ github.ref_name }} -n doku-${{ github.run_id }} -o jsonpath="{.items[*].status.phase}")
           if [ "$STATUS" != "Running" ]; then
             echo "Pod is not in Running state: $STATUS"
             exit 1
