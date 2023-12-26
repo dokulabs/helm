@@ -64,7 +64,7 @@ jobs:
         run: |
           kubectl logs -n doku-${{ secrets.GITHUB_RUN_ID }} -l app=${{ secrets.GITHUB_REF_NAME }}
       
-      - name: Check if Doku pods are running in namespace doku-${{ secrets.GITHUB_RUN_ID }}
+      - name: Check if Doku pods are running in namespace "doku-${{ secrets.GITHUB_RUN_ID }}"
         # if: steps.list-changed.outputs.changed == 'true'
         run: |
           STATUS=$(kubectl get pods -l app=${{ secrets.GITHUB_REF_NAME }} -n doku-${{ secrets.GITHUB_RUN_ID }} -o jsonpath="{.items[*].status.phase}")
