@@ -22,8 +22,8 @@ To install the Doku chart with the release name `my-doku`:
 helm repo add dokulabs https://dokulabs.github.io/helm/
 helm install doku dokulabs/doku
 ```
-
-> **NOTE**: As Doku does not have a built-in visualization UI yet, it is preferred that you set up the `observabilityPlatform` configuration within the [values.yaml](values.yaml) file. Doing so enables visualization of the LLM Observability data processed by Doku using an external observability platform.
+**NOTE**:
+> As Doku does not have a built-in visualization UI yet, it is preferred that you set up the `observabilityPlatform` configuration within the [values.yaml](values.yaml) file. Doing so enables visualization of the LLM Observability data processed by Doku using an external observability platform.
 
 ## Getting Started post Installation
 
