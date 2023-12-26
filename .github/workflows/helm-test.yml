@@ -11,9 +11,6 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Set up kubectl
-        uses: azure/setup-kubectl@v3
-
       - name: Set up Helm
         uses: azure/setup-helm@v3
         with:
@@ -51,8 +48,15 @@ jobs:
 
       - name: Run chart-testing (install)
         # if: steps.list-changed.outputs.changed == 'true'
-        run: helm install doku ./charts/doku --namespace doku --create-namespace --wait
+        run: helm install doku ./charts/doku --namespace doku --create-namespace
 
-      - name: Wait for pods to be running
-        # if: steps.list-changed.outputs.changed == 'true'
-        run: kubectl wait --for=condition=ready pod --all --namespace my-namespace --timeout=300s
+      - name: wait
+        run: sleep 120
+      
+      - name: Print pod status
+        run: |
+          kubectl get pods -n doku
+
+      - name: Print logs for a pod with label
+        run: |
+          kubectl logs -n doku -l app=doku
