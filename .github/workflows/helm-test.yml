@@ -1,9 +1,9 @@
-name: Lint and Test Charts
+name: Test Helm Chart
 
 on: pull_request
 
 jobs:
-  lint-test:
+  test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -46,7 +46,7 @@ jobs:
         # if: steps.list-changed.outputs.changed == 'true'
         uses: helm/kind-action@v1.8.0
 
-      - name: Run chart-testing (install)
+      - name: Install Helm Chart
         # if: steps.list-changed.outputs.changed == 'true'
         run: helm install doku ./charts/doku --namespace doku --create-namespace
 
@@ -60,3 +60,12 @@ jobs:
       - name: Print logs for a pod with label
         run: |
           kubectl logs -n doku -l app=doku
+      
+      - name: Check if pods are running
+        run: |
+          PODS_STATUS=$(kubectl get pods -l app=doku -n doku -o jsonpath="{.items[*].status.phase}")
+          if [ "$STATUS" != "Running" ]; then
+            echo "Pod is not in Running state: $STATUS"
+            exit 1
+          fi
+          echo "All pods are in the Running state."
