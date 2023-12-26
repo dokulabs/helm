@@ -50,20 +50,24 @@ jobs:
         # if: steps.list-changed.outputs.changed == 'true'
         run: helm install doku ./charts/doku --namespace doku --create-namespace
 
-      - name: wait
+      - name: Wait for Pod to be ready
+        # if: steps.list-changed.outputs.changed == 'true'
         run: sleep 120
       
       - name: Print pod status
+        # if: steps.list-changed.outputs.changed == 'true'
         run: |
           kubectl get pods -n doku
 
       - name: Print logs for a pod with label
+        # if: steps.list-changed.outputs.changed == 'true'
         run: |
           kubectl logs -n doku -l app=doku
       
       - name: Check if pods are running
+        # if: steps.list-changed.outputs.changed == 'true'
         run: |
-          PODS_STATUS=$(kubectl get pods -l app=doku -n doku -o jsonpath="{.items[*].status.phase}")
+          STATUS=$(kubectl get pods -l app=doku -n doku -o jsonpath="{.items[*].status.phase}")
           if [ "$STATUS" != "Running" ]; then
             echo "Pod is not in Running state: $STATUS"
             exit 1
