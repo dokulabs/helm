@@ -2,7 +2,8 @@ name: Helm Release
 
 on:
   push:
-    tags: [ 'doku-*.*.*' ]
+    branches:
+      - main
 
 jobs:
   release:
