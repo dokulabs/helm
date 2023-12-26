@@ -1,4 +1,4 @@
-name: Test Helm Chart
+name: Helm Test
 
 on: pull_request
 
