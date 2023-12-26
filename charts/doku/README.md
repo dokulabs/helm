@@ -10,7 +10,7 @@ Doku is an observability tool for Large Language Models (LLM). This Helm chart d
 To install the Doku chart with the release name `my-doku`:
 
 ```bash
-helm repo add dokulabs https://dokulabs.github.io/doku/
+helm repo add dokulabs https://dokulabs.github.io/helm/
 helm install doku dokulabs/doku
 ```
 
@@ -158,4 +158,4 @@ If you've made any changes to [`values.yaml`](values.yaml), remember to use the 
 
 ### Support
 
-For support, issues, or feature requests, submit an issue through the [GitHub issues](https://github.com/dokulabs/ingester/issues) associated with this repository.
+For support, issues, or feature requests, submit an issue through the [GitHub issues](https://github.com/dokulabs/helm/issues) associated with this repository.
