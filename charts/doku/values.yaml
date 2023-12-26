@@ -63,7 +63,7 @@ config:
     existingSecret: false
     # Name of the secret that contains the TimescaleDB User and Password
     name: ""
-    # Key in the secret that contains the TimescaleDB User's password     
+    # Key in the secret that contains the TimescaleDB User's password
     passwordKey: ""
     # Key in the secret that contains the TimescaleDB User name
     usernameKey: ""
