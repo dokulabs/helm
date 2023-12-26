@@ -6,7 +6,6 @@ metadata:
   labels:
     app: {{ include "doku.fullname" . }}
 spec:
-  externalTrafficPolicy: Cluster
   internalTrafficPolicy: Cluster
   ipFamilies:
   - IPv4
