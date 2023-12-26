@@ -2,8 +2,14 @@ apiVersion: v2
 name: doku
 description: A Helm chart for Doku
 type: application
-version: 0.0.1
+version: 0.0.2
 appVersion: 0.0.1
+icon: https://raw.githubusercontent.com/dokulabs/.github/main/profile/assets/logo-orange-bg.jpg
+
+maintainers:
+  - name: patcher99
+    email: dokulabs1@gmail.com
+
 dependencies:
 - name: timescaledb-single
   alias: timescaledb

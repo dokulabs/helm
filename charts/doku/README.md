@@ -1,5 +1,14 @@
 # Doku Helm Chart
+[![Doku](https://img.shields.io/badge/Doku-orange)](https://github.com/dokulabs/doku)
+[![License](https://img.shields.io/github/license/dokulabs/doku?label=license&logo=github&color=f80&logoColor=fff%22%20alt=%22License)](https://github.com/dokulabs/python-sdk/blob/main/LICENSE)
 [![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/doku)](https://artifacthub.io/packages/search?repo=doku)
+[![Helm Version](https://img.shields.io/github/tag/dokulabs/helm.svg?&label=Chart%20Version&logo=pypi)](https://github.com/dokulabs/python-sdk/tags)
+[![GitHub Last Commit](https://img.shields.io/github/last-commit/dokulabs/helm)](https://github.com/dokulabs/helm/pulse)
+[![GitHub Contributors](https://img.shields.io/github/contributors/dokulabs/helm)](https://github.com/dokulabs/helm/graphs/contributors)
+
+
+[![Helm Test](https://github.com/dokulabs/helm/actions/workflows/helm-test.yml/badge.svg?branch=main)](https://github.com/dokulabs/helm/actions/workflows/helm-test.yml)
+
 
 ## Introduction
 
@@ -13,6 +22,8 @@ To install the Doku chart with the release name `my-doku`:
 helm repo add dokulabs https://dokulabs.github.io/helm/
 helm install doku dokulabs/doku
 ```
+**NOTE**:
+> As Doku does not have a built-in visualization UI yet, it is preferred that you set up the `observabilityPlatform` configuration within the [values.yaml](values.yaml) file. Doing so enables visualization of the LLM Observability data processed by Doku using an external observability platform.
 
 ## Getting Started post Installation
 
@@ -56,7 +67,7 @@ To create an API key, follow these steps:
 
 ## Start sending LLM Observability data to Doku
 
-Once Doku has been installed in your cluster and API Key, You can configure the `dokumetry` Python and Node SDKs in your LLM Application. These SDKs are designed to collect and send observability data directly to your instance of Doku, providing valuable insights and metrics to monitor and analyze the performance and usage of your Large Language Models (LLM).
+Once Doku has been installed in your cluster and API Key, You can configure the `dokumetry` [Python](https://github.com/dokulabs/python-sdk[) and [NodeJS](https://github.com/dokulabs/node-sdk) SDKs in your LLM Application. These SDKs are designed to collect and send observability data directly to your instance of Doku, providing valuable insights and metrics to monitor and analyze the performance and usage of your Large Language Models (LLM).
 
 ## Configuration
 
@@ -119,7 +130,7 @@ The following table lists the configurable parameters of the Doku chart and thei
 | `timescaledb.persistentVolumes.data.size`   | Size of the persistent volume for TimescaleDB data                                                   | `10Gi`                                                                        |
 
 
-**Note**: Although the table above shows the parameters. Refer to [`values.yml`](values.yml) for a full list.
+**Note**: Although the table above shows the parameters. Refer to [`values.yaml`](values.yaml) for a full list.
 
 ### Configuring Doku
 
@@ -154,7 +165,7 @@ To upgrade the `doku` deployment:
 helm upgrade doku dokulabs/doku
 ```
 
-If you've made any changes to [`values.yml`](values.yml), remember to use the `-f` flag to provide the updated file.
+If you've made any changes to [`values.yaml`](values.yaml), remember to use the `-f` flag to provide the updated file.
 
 ### Support
 

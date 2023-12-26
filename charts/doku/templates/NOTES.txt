@@ -59,16 +59,14 @@ GENERATING YOUR FIRST DOKU API KEY
 
 Use the following CURL command to create your first API key.
 
-Make sure to replace `<Doku-URL>` with the actual address you obtained above. Replace `<Name-for-Api-Key>` with a meaningful name for the API key.
+  Make sure to replace `<Doku-URL>` with the actual address you obtained above. Replace `<Name-for-Api-Key>` with a meaningful name for the API key.
 
-```bash
-curl -X POST <Doku-URL>/api/keys \
--H 'Authorization: ""' \
--H 'Content-Type: application/json' \
--d '{"Name": "<Name-for-Api-Key>"}'
-```
-- Replace `<Doku-URL>` with the external IP or hostname and the service port of your Doku service (for LoadBalancer and NodePort).
-- Replace `<Name-for-Api-Key>` with the name you want for the API Key  
+  ```bash
+  curl -X POST <Doku-URL>/api/keys \
+  -H 'Authorization: ""' \
+  -H 'Content-Type: application/json' \
+  -d '{"Name": "<Name-for-Api-Key>"}'
+  ```
 
 A JSON response containing your new API key will be returned. Store this key securely.
 
