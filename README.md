@@ -22,6 +22,8 @@ helm repo add dokulabs https://dokulabs.github.io/helm/
 helm install doku dokulabs/doku
 ```
 
+> **NOTE**: As Doku does not have a built-in visualization UI yet, it is preferred that you set up the `observabilityPlatform` configuration within the [values.yaml](./charts/doku/values.yaml) file. Doing so enables visualization of the LLM Observability data processed by Doku using an external observability platform.
+
 ## Getting Started post Installation
 
 After the Doku chart is successfully deployed to your Kubernetes cluster, you'll need to generate an API key that can be used by the Dokumetry SDKs to authenticate requests to the Doku platform.
@@ -64,7 +66,7 @@ To create an API key, follow these steps:
 
 ### Start sending LLM Observability data to Doku
 
-Once Doku has been installed in your cluster and API Key, You can configure the `dokumetry` Python and Node SDKs in your LLM Application. These SDKs are designed to collect and send observability data directly to your instance of Doku, providing valuable insights and metrics to monitor and analyze the performance and usage of your Large Language Models (LLM).
+Once Doku has been installed in your cluster and API Key, You can configure the `dokumetry` [Python](https://github.com/dokulabs/python-sdk) and [NodeJS](https://github.com/dokulabs/node-sdk) SDKs in your LLM Application. These SDKs are designed to collect and send observability data directly to your instance of Doku, providing valuable insights and metrics to monitor and analyze the performance and usage of your Large Language Models (LLM).
 
 ## Contributing
 
