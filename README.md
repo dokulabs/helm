@@ -1,5 +1,13 @@
 # Doku Helm Chart Repository
+[![Doku](https://img.shields.io/badge/Doku-orange)](https://github.com/dokulabs/doku)
+[![License](https://img.shields.io/github/license/dokulabs/doku?label=license&logo=github&color=f80&logoColor=fff%22%20alt=%22License)](https://github.com/dokulabs/python-sdk/blob/main/LICENSE)
 [![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/doku)](https://artifacthub.io/packages/search?repo=doku)
+[![Helm Version](https://img.shields.io/github/tag/dokulabs/helm.svg?&label=Chart%20Version&logo=pypi)](https://github.com/dokulabs/python-sdk/tags)
+[![GitHub Last Commit](https://img.shields.io/github/last-commit/dokulabs/helm)](https://github.com/dokulabs/helm/pulse)
+[![GitHub Contributors](https://img.shields.io/github/contributors/dokulabs/helm)](https://github.com/dokulabs/helm/graphs/contributors)
+
+
+[![Helm Test](https://github.com/dokulabs/helm/actions/workflows/helm-test.yml/badge.svg?branch=main)](https://github.com/dokulabs/helm/actions/workflows/helm-test.yml)
 
 ## Introduction
 
@@ -54,10 +62,18 @@ To create an API key, follow these steps:
 
     Store the provided API key securely; this is the only time you will see it in full.
 
-## Start sending LLM Observability data to Doku
+### Start sending LLM Observability data to Doku
 
 Once Doku has been installed in your cluster and API Key, You can configure the `dokumetry` Python and Node SDKs in your LLM Application. These SDKs are designed to collect and send observability data directly to your instance of Doku, providing valuable insights and metrics to monitor and analyze the performance and usage of your Large Language Models (LLM).
 
-### Support
+## Contributing
+
+We welcome contributions to the Doku project. Please refer to [CONTRIBUTING](CONTRIBUTING) for detailed guidelines on how you can participate.
+
+## License
+
+Doku is available under the [GPL-3.0](LICENSE).
+
+## Support
 
 For support, issues, or feature requests, submit an issue through the [GitHub issues](https://github.com/dokulabs/helm/issues) associated with this repository.
