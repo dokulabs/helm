@@ -3,6 +3,25 @@ entries:
   doku:
   - apiVersion: v2
     appVersion: 0.0.1
+    created: "2023-12-26T09:38:22.721057924Z"
+    dependencies:
+    - alias: timescaledb
+      name: timescaledb-single
+      repository: https://charts.timescale.com/
+      version: 0.33.1
+    description: A Helm chart for Doku
+    digest: bcab9a1828f7846c5fd24a2c5caed9dd82c909bcdde0160bfaf42352db8ec07d
+    icon: https://raw.githubusercontent.com/dokulabs/.github/main/profile/assets/logo-orange-bg.jpg
+    maintainers:
+    - email: dokulabs1@gmail.com
+      name: patcher99
+    name: doku
+    type: application
+    urls:
+    - https://github.com/dokulabs/helm/releases/download/doku-0.0.2/doku-0.0.2.tgz
+    version: 0.0.2
+  - apiVersion: v2
+    appVersion: 0.0.1
     created: "2023-12-26T05:30:01.439714829Z"
     dependencies:
     - alias: timescaledb
@@ -16,4 +35,4 @@ entries:
     urls:
     - https://github.com/dokulabs/helm/releases/download/doku-0.0.1/doku-0.0.1.tgz
     version: 0.0.1
-generated: "2023-12-26T05:30:01.439722743Z"
+generated: "2023-12-26T09:38:22.721107948Z"
