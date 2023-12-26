@@ -4,6 +4,11 @@ description: A Helm chart for Doku
 type: application
 version: 0.0.2
 appVersion: 0.0.1
+
+maintainers:
+  - name: patcher99
+    email: dokulabs1@gmail.com
+
 dependencies:
 - name: timescaledb-single
   alias: timescaledb
