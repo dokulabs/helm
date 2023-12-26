@@ -19,7 +19,7 @@ jobs:
       - name: Add Timescale Chart Repo
         run: helm repo add timescale https://charts.timescale.com/
 
-      - name: Update Chart Dependencies
+      - name: Update Chart Repositories
         run: helm repo update
 
       - uses: actions/setup-python@v4
@@ -30,42 +30,42 @@ jobs:
       - name: Set up chart-testing
         uses: helm/chart-testing-action@v2.6.0
 
-      # - name: Run chart-testing (list-changed)
-      #   id: list-changed
-      #   run: |
-      #     changed=$(ct list-changed --target-branch ${{ github.event.repository.default_branch }})
-      #     if [[ -n "$changed" ]]; then
-      #       echo "changed=true" >> "$GITHUB_OUTPUT"
-      #     fi
+      - name: Run chart-testing (list-changed)
+        id: list-changed
+        run: |
+          changed=$(ct list-changed --target-branch ${{ github.event.repository.default_branch }})
+          if [[ -n "$changed" ]]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Run chart-testing (lint)
-        # if: steps.list-changed.outputs.changed == 'true'
+        if: steps.list-changed.outputs.changed == 'true'
         run: ct lint --target-branch ${{ github.event.repository.default_branch }}
 
       - name: Create kind cluster
-        # if: steps.list-changed.outputs.changed == 'true'
+        if: steps.list-changed.outputs.changed == 'true'
         uses: helm/kind-action@v1.8.0
 
       - name: Install Helm Chart in namespace `doku-${{ github.run_id }}`
-        # if: steps.list-changed.outputs.changed == 'true'
+        if: steps.list-changed.outputs.changed == 'true'
         run: helm install doku-${{ github.run_id }} ./charts/doku --namespace doku-${{ github.run_id }} --create-namespace
 
       - name: Wait for Pods to be ready in namespace `doku-${{ github.run_id }}`
-        # if: steps.list-changed.outputs.changed == 'true'
+        if: steps.list-changed.outputs.changed == 'true'
         run: sleep 120
       
       - name: Check Pod status in namespace `doku-${{ github.run_id }}`
-        # if: steps.list-changed.outputs.changed == 'true'
+        if: steps.list-changed.outputs.changed == 'true'
         run: |
           kubectl get pods -n doku-${{ github.run_id }}
 
       - name: Print logs for a pod with label `app=doku-${{ github.run_id }}`
-        # if: steps.list-changed.outputs.changed == 'true'
+        if: steps.list-changed.outputs.changed == 'true'
         run: |
           kubectl logs -n doku-${{ github.run_id }} -l app=doku-${{ github.run_id }}
       
       - name: Check if Doku pods are running in namespace `doku-${{ github.run_id }}``
-        # if: steps.list-changed.outputs.changed == 'true'
+        if: steps.list-changed.outputs.changed == 'true'
         run: |
           STATUS=$(kubectl get pods -l app=doku-${{ github.run_id }} -n doku-${{ github.run_id }} -o jsonpath="{.items[*].status.phase}")
           if [ "$STATUS" != "Running" ]; then
