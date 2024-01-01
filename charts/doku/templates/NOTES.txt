@@ -76,7 +76,7 @@ SENDING LLM OBSERVABILITY DATA TO DOKU
 
 Once you have your API key and DOKU Url, you can configure the `dokumetry` SDKs in your LLM application to automatically send LLM observability data to your Doku instance.
 
-- Python SDK: https://www.github.com/dokulabs/python-sdk
-- Node SDK: https://www.github.com/dokulabs/node-sdk
+- Python SDK: https://www.github.com/dokulabs/dokumetry-python
+- Node SDK: https://www.github.com/dokulabs/dokumetry-node
 
 For any questions or issues, please refer to the chart README or contact our support team.

@@ -67,7 +67,7 @@ To create an API key, follow these steps:
 
 ## Start sending LLM Observability data to Doku
 
-Once Doku has been installed in your cluster and API Key, You can configure the `dokumetry` [Python](https://github.com/dokulabs/python-sdk[) and [NodeJS](https://github.com/dokulabs/node-sdk) SDKs in your LLM Application. These SDKs are designed to collect and send observability data directly to your instance of Doku, providing valuable insights and metrics to monitor and analyze the performance and usage of your Large Language Models (LLM).
+Once Doku has been installed in your cluster and API Key, You can configure the `dokumetry` [Python](https://github.com/dokulabs/dokumetry-python[) and [NodeJS](https://github.com/dokulabs/dokumetry-node) SDKs in your LLM Application. These SDKs are designed to collect and send observability data directly to your instance of Doku, providing valuable insights and metrics to monitor and analyze the performance and usage of your Large Language Models (LLM).
 
 ## Configuration
 
