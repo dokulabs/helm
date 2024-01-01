@@ -91,14 +91,15 @@ config:
     maxIdleConns: "10"
     dataTable: DOKU
     apiKeyTable: APIKEY
-
-  # Configure Platform to export LLM Observability Data from Doku
+  
   observabilityPlatform:
-    enabled: false
+    enabled: true
     grafanaCloud:
-      logsUrl: "https://logs-prod-us-central1.grafana.net"
-      logsUsername: "your_loki_username"
-      cloudAccessToken: "your_grafana_cloud_api_token"
+      promUrl: "influx-line-proxy-url"          # URL to the Influx Line Proxy URL of the Grafana Cloud Prometheus Instance
+      promUsername: "prometheus-userid"         # Prometheus User ID of the Grafana Cloud Prometheus Instance
+      lokiUrl: "loki-push-url"                  # URL to the Loki Push URL of the Grafana Cloud Loki Instance
+      lokiUsername: "loki-username"             # Loki Username of the Grafana Cloud Loki Instance
+      accessToken: "grafana-cloud-access-token" # Access Token of the Grafana Cloud Instance
 
 # Configuration for the Doku Backend Database (TimescaleDB)
 timescaledb:
