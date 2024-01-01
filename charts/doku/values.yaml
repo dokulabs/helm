@@ -91,15 +91,15 @@ config:
     maxIdleConns: "10"
     dataTable: DOKU
     apiKeyTable: APIKEY
-  
+
   observabilityPlatform:
     enabled: true
     grafanaCloud:
-      promUrl: "influx-line-proxy-url"          # URL to the Influx Line Proxy URL of the Grafana Cloud Prometheus Instance
-      promUsername: "prometheus-userid"         # Prometheus User ID of the Grafana Cloud Prometheus Instance
-      lokiUrl: "loki-push-url"                  # URL to the Loki Push URL of the Grafana Cloud Loki Instance
-      lokiUsername: "loki-username"             # Loki Username of the Grafana Cloud Loki Instance
-      accessToken: "grafana-cloud-access-token" # Access Token of the Grafana Cloud Instance
+      promUrl: "influx-line-proxy-url"               # URL to the Influx Line Proxy URL of the Grafana Cloud Prometheus Instance
+      promUsername: "prometheus-userid"              # Prometheus User ID of the Grafana Cloud Prometheus Instance
+      lokiUrl: "loki-push-url"                       # URL to the Loki Push URL of the Grafana Cloud Loki Instance
+      lokiUsername: "loki-username"                  # Loki Username of the Grafana Cloud Loki Instance
+      accessToken: "grafana-cloud-access-token"      # Access Token of the Grafana Cloud Instance
 
 # Configuration for the Doku Backend Database (TimescaleDB)
 timescaledb:
