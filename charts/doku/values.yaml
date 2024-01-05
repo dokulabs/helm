@@ -92,14 +92,23 @@ config:
     dataTable: DOKU
     apiKeyTable: APIKEY
 
+  # Configure Platform to export LLM Observability Data from Doku
+  # Only one platform can be enabled at a time, To enable a platform, set enabled to true and fill in the required fields for that platform.  
   observabilityPlatform:
-    enabled: true
+    enabled: false
+    # Configuration for exporting LLM Observability data to Grafana Cloud
     grafanaCloud:
       promUrl: "influx-line-proxy-url"               # URL to the Influx Line Proxy URL of the Grafana Cloud Prometheus Instance
       promUsername: "prometheus-userid"              # Prometheus User ID of the Grafana Cloud Prometheus Instance
       lokiUrl: "loki-push-url"                       # URL to the Loki Push URL of the Grafana Cloud Loki Instance
       lokiUsername: "loki-username"                  # Loki Username of the Grafana Cloud Loki Instance
       accessToken: "grafana-cloud-access-token"      # Access Token of the Grafana Cloud Instance
+    
+    # Configuration for exporting LLM Observability data to New Relic
+    newRelic:
+      metricsUrl: "https://metric-api.newrelic.com/metric/v1"    # URL to the New Relic Metric API
+      logsUrl: "https://log-api.newrelic.com/log/v1"             # URL to the New Relic Log API
+      key: "newrelic-api-key"                                    # Ingest API Key of the New Relic Account
 
 # Configuration for the Doku Backend Database (TimescaleDB)
 timescaledb:

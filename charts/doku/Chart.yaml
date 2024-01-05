@@ -2,8 +2,8 @@ apiVersion: v2
 name: doku
 description: A Helm chart for Doku
 type: application
-version: 0.0.3
-appVersion: 0.0.2
+version: 0.0.4
+appVersion: 0.0.3
 icon: https://raw.githubusercontent.com/dokulabs/.github/main/profile/assets/logo-orange-bg.jpg
 
 maintainers:
