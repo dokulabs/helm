@@ -93,7 +93,7 @@ config:
     apiKeyTable: APIKEY
 
   # Configure Platform to export LLM Observability Data from Doku
-  # Only one platform can be enabled at a time, To enable a platform, set enabled to true and fill in the required fields for that platform.  
+  # Only one platform can be enabled at a time, To enable a platform, set enabled to true and fill in the required fields for that platform. 
   observabilityPlatform:
     enabled: false
     # Configuration for exporting LLM Observability data to Grafana Cloud
@@ -103,7 +103,7 @@ config:
       lokiUrl: "loki-push-url"                       # URL to the Loki Push URL of the Grafana Cloud Loki Instance
       lokiUsername: "loki-username"                  # Loki Username of the Grafana Cloud Loki Instance
       accessToken: "grafana-cloud-access-token"      # Access Token of the Grafana Cloud Instance
-    
+
     # Configuration for exporting LLM Observability data to New Relic
     newRelic:
       metricsUrl: "https://metric-api.newrelic.com/metric/v1"    # URL to the New Relic Metric API
