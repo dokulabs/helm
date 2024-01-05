@@ -93,7 +93,7 @@ config:
     apiKeyTable: APIKEY
 
   # Configure Platform to export LLM Observability Data from Doku
-  # Only one platform can be enabled at a time, To enable a platform, set enabled to true and fill in the required fields for that platform. 
+  # Only one platform can be enabled at a time, To enable a platform, set enabled to true and fill in the required fields for that platform.
   observabilityPlatform:
     enabled: false
     # Configuration for exporting LLM Observability data to Grafana Cloud
